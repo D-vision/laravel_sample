@@ -25,16 +25,27 @@ class UserController extends Controller {
         $this->middleware('can:admin');
     }
 
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('users', ['users' => User::all()]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('userCreate');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $this->validationRules['password'] .= '|required';
@@ -44,11 +55,20 @@ class UserController extends Controller {
         return redirect()->route('user.show', ['user' => $user->id]);
     }
 
+    /**
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(User $user)
     {
         return view('user', compact('user'));
     }
 
+    /**
+     * @param Request $request
+     * @param User    $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request, User $user)
     {
         $this->validationRules['email'] .= ',email,' . $user->id;
@@ -58,6 +78,11 @@ class UserController extends Controller {
         return redirect()->route('user.show', ['user' => $user->id]);
     }
 
+    /**
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
     public function destroy(User $user)
     {
         $user->delete();
