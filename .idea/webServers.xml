@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="149f1173-4126-4337-aa60-e7126f9524a5" name="example.fed.kz" url="http://example.fed.kz">
+        <fileTransfer host="0x.kz" port="22" rootFolder="/home/fed/example" accessType="SFTP" password="dfc7dffcdfe7dfeedfe6dfdbdfccdffc" username="fed">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
