@@ -1,1 +1,2 @@
 
+Пример: sample.fed.kz
